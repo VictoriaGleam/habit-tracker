@@ -1,0 +1,662 @@
+/* ---------------------------------------------------------
+   GLOBALT
+--------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    font-size: 30px; /* ALL vanlig text */
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FFE4F0;
+    color: #333;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+/* ---------------------------------------------------------
+   LOGIN / REGISTER
+--------------------------------------------------------- */
+.logo-container {
+    text-align: center;
+    width: 100%;
+    max-width: 240px;
+    margin: 40px auto 20px;
+}
+
+.app-logo {
+    width: 200px;
+    max-width: 100%;
+    border-radius: 20px;
+    height: 200px; 
+}
+
+.center-page {
+    display: flex;
+    justify-content: center;
+    margin-top: 400px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    width: 600px;
+    max-width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    font-size: 30px;
+}
+
+.card input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 30px;
+}
+
+.card button {
+    width: 100%;
+    padding: 12px;
+    background-color: #FF4FA3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.card button:hover {
+    background-color: #ff2f8f;
+}
+
+/* ---------------------------------------------------------
+   DASHBOARD BODY
+--------------------------------------------------------- */
+.dashboard-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ---------------------------------------------------------
+   HEADER
+--------------------------------------------------------- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header-logo {
+    height: 60px;
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+.logout-button {
+    background-color: #FF4FA3;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.logout-button:hover {
+    background-color: #ff2f8f;
+}
+
+/* ---------------------------------------------------------
+   DASHBOARD LAYOUT
+--------------------------------------------------------- */
+.dashboard-container {
+    flex: 1;
+    display: block;
+    padding: 30px;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* ---------------------------------------------------------
+   SECTION CARDS
+--------------------------------------------------------- */
+.section-card {
+    background: white;
+    padding: 26px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 24px;
+}
+
+.section-card h2 {
+    margin-bottom: 8px;
+    font-size: 2.5rem; /* större än 24px */
+    color: #FF4FA3;
+}
+
+/* ---------------------------------------------------------
+   LISTOR
+--------------------------------------------------------- */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.today-item,
+.habit-item,
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFF0F7;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+/* ---------------------------------------------------------
+   KNAPPAR I LISTOR
+--------------------------------------------------------- */
+.today-item button {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Redigera / Ta bort */
+.habit-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.habit-actions button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.habit-actions button:first-child {
+    background-color: #FFC107;
+    color: #333;
+}
+
+.habit-actions button:last-child {
+    background-color: #FF4FA3;
+    color: white;
+}
+
+.habit-actions button:hover {
+    opacity: 0.85;
+}
+
+/* ---------------------------------------------------------
+   FORMULÄR FÖR NY VANA
+--------------------------------------------------------- */
+#new-habit-form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+#new-habit-form input,
+#new-habit-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 24px;
+}
+
+#new-habit-form button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    background-color: #FF4FA3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+#new-habit-form button:hover {
+    background-color: #ff2f8f;
+}
+
+/* ---------------------------------------------------------
+   HISTORIK
+--------------------------------------------------------- */
+.history-date {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.history-status {
+    font-size: 28px;
+}
+
+/* ---------------------------------------------------------
+   MODAL
+--------------------------------------------------------- */
+.modal {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-card {
+    background: white;
+    padding: 32px;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-size: 24px;
+}
+
+.modal-card h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #FF4FA3;
+    text-align: center;
+}
+
+.modal-card label {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.modal-card input,
+.modal-card textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 24px;
+    background: #FFF0F7;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.modal-buttons button {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#cancelEdit {
+    background: #ccc;
+}
+
+#cancelEdit:hover {
+    background: #b8b8b8;
+}
+
+#saveEdit {
+    background: #FF4FA3;
+    color: white;
+}
+
+#saveEdit:hover {
+    background: #ff2f8f;
+}
+
+/* ---------------------------------------------------------
+   DASHBOARD TABS (ROSA MOBILMENY)
+--------------------------------------------------------- */
+.dashboard-tabs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background: #FFE4F0;
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.dashboard-tabs button {
+    flex: 1;
+    background: #FF4FA3;
+    color: white;
+    border: none;
+    padding: 14px 0;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.dashboard-tabs button.active {
+    background: #ff2f8f;
+    transform: scale(1.03);
+}
+
+.dashboard-tabs button:active {
+    transform: scale(0.97);
+}
+
+@media (max-width: 400px) {
+    .dashboard-tabs {
+        flex-wrap: wrap;
+    }
+
+    .dashboard-tabs button {
+        flex: 48%;
+    }
+}
+/* ---------------------------------------------------------
+   INDEX / HERO SECTION
+--------------------------------------------------------- */
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.hero-image {
+    max-width: 350px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero-text {
+    max-width: 450px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    color: #FF4FA3;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 24px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.pink-button {
+    padding: 14px 28px;
+    font-size: 24px;
+    border-radius: 12px;
+    background: #FF4FA3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.pink-button:hover {
+    background: #ff2f8f;
+}
+
+.yellow-button {
+    padding: 14px 28px;
+    font-size: 24px;
+    border-radius: 12px;
+    background: #FFC107;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.yellow-button:hover {
+    background: #e0a800;
+}
+
+/* ---------------------------------------------------------
+   ABOUT SECTION
+--------------------------------------------------------- */
+
+.about-section {
+    background: white;
+    padding: 50px 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.about-section h2 {
+    color: #FF4FA3;
+    font-size: 40px;
+}
+
+.about-text {
+    max-width: 700px;
+    margin: 20px auto;
+    color: #444;
+    font-size: 24px;
+}
+
+.feature-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: #FFF0F7;
+    padding: 20px;
+    border-radius: 14px;
+    width: 260px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.feature-card h3 {
+    color: #FF4FA3;
+    font-size: 28px;
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #555;
+    font-size: 24px;
+}
+/* ---------------------------------------------------------
+   INDEX / HERO SECTION
+--------------------------------------------------------- */
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.hero-image {
+    max-width: 350px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero-text {
+    max-width: 450px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    color: #FF4FA3;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 24px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.pink-button {
+    padding: 14px 28px;
+    font-size: 24px;
+    border-radius: 12px;
+    background: #FF4FA3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.pink-button:hover {
+    background: #ff2f8f;
+}
+
+.yellow-button {
+    padding: 14px 28px;
+    font-size: 24px;
+    border-radius: 12px;
+    background: #FFC107;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.yellow-button:hover {
+    background: #e0a800;
+}
+
+/* ---------------------------------------------------------
+   ABOUT SECTION
+--------------------------------------------------------- */
+
+.about-section {
+    background: white;
+    padding: 50px 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.about-section h2 {
+    color: #FF4FA3;
+    font-size: 40px;
+}
+
+.about-text {
+    max-width: 700px;
+    margin: 20px auto;
+    color: #444;
+    font-size: 24px;
+}
+
+.feature-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: #FFF0F7;
+    padding: 20px;
+    border-radius: 14px;
+    width: 260px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.feature-card h3 {
+    color: #FF4FA3;
+    font-size: 28px;
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #555;
+    font-size: 24px;
+}
