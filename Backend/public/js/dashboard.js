@@ -1,12 +1,18 @@
 const userId = localStorage.getItem("user_id");
 if (!userId) {
-    window.location.href = "login.html";
+    window.location.href = "login.html"; // detta ska vara login.html – korrekt
 }
 
+// ---------------------------------------------------------
+// Logga ut
+// ---------------------------------------------------------
 function logout() {
     localStorage.removeItem("user_id");
-    window.location.href = "login.html";
+    window.location.href = "index.html"; // ändrad från login.html → index.html
 }
+
+let currentHabit = null;
+let habitToDelete = null;
 
 // ---------------------------------------------------------
 // Ladda alla vanor
@@ -28,8 +34,8 @@ async function loadHabits() {
                 <small>${habit.description || ""}</small>
             </div>
             <div class="habit-actions">
-                <button onclick="editHabit(${habit.id})">Redigera</button>
-                <button onclick="deleteHabit(${habit.id})">Ta bort</button>
+                <button onclick="openEditModal(${habit.id})">Redigera</button>
+                <button onclick="openDeleteModal(${habit.id})">Ta bort</button>
             </div>
         `;
 
@@ -66,45 +72,74 @@ async function createHabit(event) {
     });
 
     document.getElementById("new-habit-form").reset();
-
     await loadHabits();
 }
 
 // ---------------------------------------------------------
-// Redigera vana
+// Öppna redigeringsmodal
 // ---------------------------------------------------------
-async function editHabit(id) {
-    const newTitle = prompt("Ny titel:");
-    if (!newTitle) return;
-
-    // Hämta befintlig vana
+async function openEditModal(id) {
     const res = await fetch(`/habits/${userId}`);
     const habits = await res.json();
-    const habit = habits.find(h => h.id === id);
+    currentHabit = habits.find(h => h.id === id);
 
-    await fetch(`/habits/${id}`, {
+    document.getElementById("editTitle").value = currentHabit.title;
+    document.getElementById("editDescription").value = currentHabit.description;
+    document.getElementById("editFrequency").value = currentHabit.frequency;
+
+    document.getElementById("editModal").classList.remove("hidden");
+}
+
+// Stäng redigeringsmodal
+document.getElementById("cancelEdit").onclick = () => {
+    document.getElementById("editModal").classList.add("hidden");
+};
+
+// Spara ändringar
+document.getElementById("saveEdit").onclick = async () => {
+    const updated = {
+        title: document.getElementById("editTitle").value,
+        description: document.getElementById("editDescription").value,
+        frequency: document.getElementById("editFrequency").value,
+        start_date: currentHabit.start_date
+    };
+
+    await fetch(`/habits/${currentHabit.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            title: newTitle,
-            description: habit.description,
-            start_date: habit.start_date,
-            frequency: habit.frequency
-        })
+        body: JSON.stringify(updated)
     });
 
+    document.getElementById("editModal").classList.add("hidden");
     await loadHabits();
-}
+};
 
 // ---------------------------------------------------------
-// Ta bort vana
+// Öppna ta-bort-modal
 // ---------------------------------------------------------
-async function deleteHabit(id) {
-    if (!confirm("Vill du ta bort denna vana?")) return;
-
-    await fetch(`/habits/${id}`, { method: "DELETE" });
-    await loadHabits();
+function openDeleteModal(id) {
+    habitToDelete = id;
+    document.getElementById("deleteModal").classList.remove("hidden");
 }
+
+// Stäng ta-bort-modal
+document.getElementById("cancelDelete").onclick = () => {
+    habitToDelete = null;
+    document.getElementById("deleteModal").classList.add("hidden");
+};
+
+// Bekräfta borttagning
+document.getElementById("confirmDelete").onclick = async () => {
+    if (!habitToDelete) return;
+
+    await fetch(`/habits/${habitToDelete}`, {
+        method: "DELETE"
+    });
+
+    habitToDelete = null;
+    document.getElementById("deleteModal").classList.add("hidden");
+    await loadHabits();
+};
 
 // ---------------------------------------------------------
 // Dagens vanor
@@ -209,14 +244,13 @@ async function loadHistory() {
 }
 
 loadHabits();
-// ---------------------------------------------------------
-// TAB-MENY (Visa endast vald sektion)
-// ---------------------------------------------------------
 
+// ---------------------------------------------------------
+// TAB-MENY
+// ---------------------------------------------------------
 const tabs = document.querySelectorAll(".dashboard-tabs button");
 const sections = document.querySelectorAll(".section-card");
 
-// Visa bara "Idag" när sidan laddas
 sections.forEach(sec => sec.style.display = "none");
 document.getElementById("today").style.display = "block";
 tabs[0].classList.add("active");
@@ -225,13 +259,9 @@ tabs.forEach(tab => {
     tab.addEventListener("click", () => {
         const target = tab.dataset.tab;
 
-        // Dölj alla sektioner
         sections.forEach(sec => sec.style.display = "none");
-
-        // Visa rätt sektion
         document.getElementById(target).style.display = "block";
 
-        // Uppdatera aktiv flik
         tabs.forEach(t => t.classList.remove("active"));
         tab.classList.add("active");
     });

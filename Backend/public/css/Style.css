@@ -1,6 +1,3 @@
-/* ---------------------------------------------------------
-   GLOBALT
---------------------------------------------------------- */
 * {
     box-sizing: border-box;
 }
@@ -10,7 +7,7 @@ html, body {
 }
 
 body {
-    font-size: 30px; /* ALL vanlig text */
+    font-size: 24px;
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
@@ -28,15 +25,16 @@ h1, h2, h3 {
 .logo-container {
     text-align: center;
     width: 100%;
-    max-width: 240px;
-    margin: 40px auto 20px;
+    max-width: 400px;
+    margin: 40px auto 40px;
 }
 
 .app-logo {
-    width: 200px;
+    width: 400px;
     max-width: 100%;
-    border-radius: 20px;
-    height: 200px; 
+    border-radius: 40px;
+    height: 400px;
+    margin-top: 60px;
 }
 
 .center-page {
@@ -152,7 +150,7 @@ h1, h2, h3 {
 
 .section-card h2 {
     margin-bottom: 8px;
-    font-size: 2.5rem; /* större än 24px */
+    font-size: 2.5rem;
     color: #FF4FA3;
 }
 
@@ -191,7 +189,6 @@ ul {
     font-size: 24px;
 }
 
-/* Redigera / Ta bort */
 .habit-actions {
     display: flex;
     gap: 12px;
@@ -202,7 +199,7 @@ ul {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
 }
 
@@ -356,7 +353,7 @@ ul {
 }
 
 /* ---------------------------------------------------------
-   DASHBOARD TABS (ROSA MOBILMENY)
+   DASHBOARD TABS
 --------------------------------------------------------- */
 .dashboard-tabs {
     display: flex;
@@ -391,19 +388,9 @@ ul {
     transform: scale(0.97);
 }
 
-@media (max-width: 400px) {
-    .dashboard-tabs {
-        flex-wrap: wrap;
-    }
-
-    .dashboard-tabs button {
-        flex: 48%;
-    }
-}
 /* ---------------------------------------------------------
    INDEX / HERO SECTION
 --------------------------------------------------------- */
-
 .hero-section {
     display: flex;
     align-items: center;
@@ -426,13 +413,13 @@ ul {
 }
 
 .hero-text h1 {
-    font-size: 48px;
+    font-size: 28px;
     color: #FF4FA3;
     margin-bottom: 10px;
 }
 
 .hero-text p {
-    font-size: 24px;
+    font-size: 16px;
     color: #555;
     line-height: 1.6;
 }
@@ -444,10 +431,12 @@ ul {
     gap: 15px;
 }
 
-.pink-button {
-    padding: 14px 28px;
-    font-size: 24px;
-    border-radius: 12px;
+/* Knappar – små och rosa */
+.pink-button,
+.yellow-button {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 6px;
     background: #FF4FA3;
     color: white;
     border: none;
@@ -455,29 +444,14 @@ ul {
     font-weight: 600;
 }
 
-.pink-button:hover {
-    background: #ff2f8f;
-}
-
-.yellow-button {
-    padding: 14px 28px;
-    font-size: 24px;
-    border-radius: 12px;
-    background: #FFC107;
-    color: #333;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-}
-
+.pink-button:hover,
 .yellow-button:hover {
-    background: #e0a800;
+    background: #ff2f8f;
 }
 
 /* ---------------------------------------------------------
    ABOUT SECTION
 --------------------------------------------------------- */
-
 .about-section {
     background: white;
     padding: 50px 20px;
@@ -487,14 +461,14 @@ ul {
 
 .about-section h2 {
     color: #FF4FA3;
-    font-size: 40px;
+    font-size: 28px;
 }
 
 .about-text {
     max-width: 700px;
     margin: 20px auto;
     color: #444;
-    font-size: 24px;
+    font-size: 16px;
 }
 
 .feature-boxes {
@@ -511,152 +485,30 @@ ul {
     border-radius: 14px;
     width: 260px;
     text-align: center;
-    font-size: 24px;
+    font-size: 16px;
 }
 
 .feature-card h3 {
     color: #FF4FA3;
-    font-size: 28px;
+    font-size: 20px;
 }
 
 /* ---------------------------------------------------------
    FOOTER
 --------------------------------------------------------- */
-
 .footer {
     text-align: center;
     margin-top: 40px;
     padding: 20px;
     color: #555;
-    font-size: 24px;
-}
-/* ---------------------------------------------------------
-   INDEX / HERO SECTION
---------------------------------------------------------- */
-
-.hero-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    padding: 60px 20px;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
-.hero-image {
-    max-width: 350px;
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.hero-text {
-    max-width: 450px;
-}
-
-.hero-text h1 {
-    font-size: 48px;
-    color: #FF4FA3;
-    margin-bottom: 10px;
-}
-
-.hero-text p {
-    font-size: 24px;
-    color: #555;
-    line-height: 1.6;
-}
-
-.hero-buttons {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.pink-button {
-    padding: 14px 28px;
-    font-size: 24px;
-    border-radius: 12px;
-    background: #FF4FA3;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.pink-button:hover {
-    background: #ff2f8f;
-}
-
-.yellow-button {
-    padding: 14px 28px;
-    font-size: 24px;
-    border-radius: 12px;
-    background: #FFC107;
-    color: #333;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.yellow-button:hover {
-    background: #e0a800;
+    font-size: 20px;
 }
 
 /* ---------------------------------------------------------
-   ABOUT SECTION
+   DROPDOWN
 --------------------------------------------------------- */
-
-.about-section {
-    background: white;
-    padding: 50px 20px;
-    margin-top: 40px;
-    text-align: center;
-}
-
-.about-section h2 {
-    color: #FF4FA3;
-    font-size: 40px;
-}
-
-.about-text {
-    max-width: 700px;
-    margin: 20px auto;
-    color: #444;
-    font-size: 24px;
-}
-
-.feature-boxes {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.feature-card {
-    background: #FFF0F7;
-    padding: 20px;
-    border-radius: 14px;
-    width: 260px;
-    text-align: center;
-    font-size: 24px;
-}
-
-.feature-card h3 {
-    color: #FF4FA3;
-    font-size: 28px;
-}
-
-/* ---------------------------------------------------------
-   FOOTER
---------------------------------------------------------- */
-
-.footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    color: #555;
-    font-size: 24px;
+#history-select {
+    width: 300px;
+    padding: 8px;
+    font-size: 20px;
 }

@@ -17,7 +17,8 @@
 ### Admin Dashboard
 - Se alla användares vanor
 - Se statistik per användare
-- Filtrera på användare
+- Filtrera på användaregit reset
+
 - Sök efter vana eller användare
 
 ### Admin Tools

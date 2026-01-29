@@ -54,7 +54,6 @@
                 <label for="habit-frequency">Frekvens per vecka</label>
                 <input type="number" id="habit-frequency" min="1">
 
-
                 <label for="start_date">Startdatum</label>
                 <input type="date" id="start_date" required>
 
@@ -92,6 +91,19 @@
             <div class="modal-buttons">
                 <button id="cancelEdit">Avbryt</button>
                 <button id="saveEdit">Spara</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ⭐ TA BORT-MODAL -->
+    <div id="deleteModal" class="modal hidden">
+        <div class="modal-card delete-card">
+            <h2>Ta bort vana</h2>
+            <p>Är du säker på att du vill ta bort denna vana?</p>
+
+            <div class="modal-buttons">
+                <button id="cancelDelete">Avbryt</button>
+                <button id="confirmDelete" class="danger-btn">Ta bort</button>
             </div>
         </div>
     </div>
